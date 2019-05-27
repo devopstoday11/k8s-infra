@@ -18,10 +18,10 @@ ansible-playbook playbook/openstack.yml -e '{"state": "present", "hostname": "so
 ```
 
 The playbook also uses the variables defined in `roles/openstack/defaults/main.yml`. Those variables can also be overridden using the syntax above.
-For example to override the VM flavor, one would execute the following command:
+For example to override the VM flavor, network and security group, one would execute the following command:
 
 ```
-ansible-playbook playbook/openstack.yml -e '{"state": "present", "hostname": "somehostname", "openstack": {"os_username": "username", "os_password": "password", "os_domain": "domain", "os_auth_url": "https://somehost:13000/v3", "os_project_id": "someprojectid", "os_network": "network", "os_security_group": "security_group", "vm": {"flavor": "m1.medium"}}}'`
+ansible-playbook playbook/openstack.yml -e '{"state": "present", "hostname": "somehostname", "openstack": {"os_username": "username", "os_password": "password", "os_domain": "domain", "os_auth_url": "https://somehost:13000/v3", "os_project_id": "someprojectid", "vm": {"network": "some_network", "security_group": "some_security_group", "flavor": "m1.medium"}}}'`
 ```
 
 To delete a VM, simply replace `"state": "present"` with `"state": "absent"`
