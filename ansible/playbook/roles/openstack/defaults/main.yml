@@ -12,5 +12,5 @@ openstack:
     key_name: "{{ hostname }}"
     flavor: m1.xlarge
     auto_floating_ip: yes
-    network: spring-boot-jenkins-priv-network
-    security_group: spring-boot-osoos
+    network: "{{ os.network | default('default_network') }}"
+    security_group: "{{ os.security_group | default('default_security_group')}}"
